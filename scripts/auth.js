@@ -1,3 +1,14 @@
+// add admin cloud function
+const adminForm = document.querySelector('.admin-actions');
+adminForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const adminEmail = document.querySelector('#admin-email').value;
+    const addAdminRole = functions.httpsCallable('addAdminRole');
+    addAdminRole({ email: adminEmail }).then(result => {
+        console.log(result);
+    })
+})
+
 // listen for auth status changes
 auth.onAuthStateChanged(user => {
     if (user) {
@@ -35,6 +46,7 @@ createForm.addEventListener('submit', (e) => {
 const signupForm = document.querySelector('#signup-form');
 signupForm.addEventListener('submit', (e) => {
     e.preventDefault();
+
     //get user info
     const email = signupForm['signup-email'].value;
     const password = signupForm['signup-password'].value;

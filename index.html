@@ -36,6 +36,12 @@
     </div>
   </nav>
 
+  <!-- ADMIN ACTIONS -->
+  <form class="center-align admin-actions" style="margin: 40px auto; max-width: 300px;">
+    <input type="email" placeholder="User email" id="admin-email" required />
+    <button class="btn-small yellow darken-2 z-depth-0">Make admin</button>
+  </form>
+
   <!-- SIGN UP MODAL -->
   <div id="modal-signup" class="modal">
     <div class="modal-content">
@@ -113,6 +119,7 @@
 <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-functions.js"></script>
 
 <script>
   // Your web app's Firebase configuration
@@ -126,9 +133,12 @@
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+
   // make auth and firestore references
   const auth = firebase.auth();
   const db = firebase.firestore();
+  const functions = firebase.functions();
+
   //update firestore settings, not needed in current version of firebase?
   //db.settings({ timestampsInSnapshots})
 </script>
